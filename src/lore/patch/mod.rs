@@ -28,7 +28,7 @@ pub struct Patch {
     author: Author,
     #[serde(rename = "link")]
     message_id: MessageID,
-    #[serde(rename = "in-reply-to")]
+    #[serde(rename = "thr:in-reply-to")]
     in_reply_to: Option<MessageID>,
     updated: String,
 }
@@ -48,6 +48,7 @@ impl Display for Author {
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct MessageID {
+    #[serde(rename = "@href")]
     pub href: String,
 }
 
